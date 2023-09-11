@@ -1,4 +1,4 @@
-#ignore some sensitive files
+#ignore connection string
 .env
 # dependencies
 /node_modules
