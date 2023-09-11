@@ -6,10 +6,13 @@ const facultyRouter = require('./routes/faculty.routes')
 const AdminRouter = require('./routes/admin.routes')
 const RegisterRouter = require('./routes/register.routes')
 const recordRouter = require('./routes/record.routes')
+const  DataBase = require('./config/database')
+// const dotenv = require('dotenv')
 // const ClassRecords = require('./routes/classrecords.routes')
 
 require('dotenv').config();
 
+DataBase();
 const app = express()
 
 const port = process.env.PORT || 8080;
@@ -24,18 +27,7 @@ app.use('/faculty', facultyRouter);
 app.use('/', AdminRouter);
 app.use('/register',RegisterRouter);
 app.use('/records', recordRouter);
-// app.use('/classrecords', ClassRecords)
 
-//Mongoo database connection
-// const uri = process.env.ATLAS_URI;
-                        //flags
-mongoose.connect('mongodb+srv://hia:Zu5h2NryX3OjMY3y@cluster0.mkrocy9.mongodb.net/Hia?retryWrites=true&w=majority');
+ const PORT = process.env.PORT || 8080;
 
-const connection = mongoose.connection;
-connection.once('open', () => {
-    console.log('Connected to MongoDB!');
-})
-
-app.listen(port, () => {
-    console.log(`server is running on port: ${port}`);
-})
+ const server = app.listen(PORT, console.log(PORT));
