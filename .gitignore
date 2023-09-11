@@ -1,5 +1,6 @@
 #ignore connection string
-.env/
+/.env
 # dependencies
-/node_modules/
-controllers/
+/node_modules
+#blank
+/controllers
